@@ -95,26 +95,16 @@ $(function()
         var slider = multiItemSlider('.slider')
 
     })
-});
-$(function() {
-
-  (function quantityProducts() {
-    var $quantityArrowMinus = $(".quantity-arrow-minus");
-    var $quantityArrowPlus = $(".quantity-arrow-plus");
-    var $quantityNum = $(".quantity-num");
-
-    $quantityArrowMinus.click(quantityMinus);
-    $quantityArrowPlus.click(quantityPlus);
-
-    function quantityMinus() {
-      if ($quantityNum.val() > 1) {
-        $quantityNum.val(+$quantityNum.val() - 1);
-      }
+    $("button.quantity-arrow-minus").on("click",function()
+    {
+    var some=$(this.closest('div')).find('input.quantity-num');
+    if (some.val() > 1) {
+      some.val(+some.val() - 1);
     }
-
-    function quantityPlus() {
-      $quantityNum.val(+$quantityNum.val() + 1);
-    }
-  })();
-
+    })
+    $("button.quantity-arrow-plus").on("click",function()
+    {
+      var some=$(this.closest('div')).find('input.quantity-num');
+        some.val(+some.val() + 1);
+    })
 });
